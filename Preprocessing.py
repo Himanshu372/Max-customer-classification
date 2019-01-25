@@ -108,7 +108,7 @@ def balancing_dataset(features_array, labels_array):
     :param labels_array:
     :return: balanced_features, balanced_labels
     """ 
-    #Using minmaxscaler from sklearn to normalize dataset
+    #Using ADASYN to balance dataset by up sampling data using n = 5
     sm = ADASYN(sampling_strategy = .7, random_state = 42, n_neighbors = 5)
     balanced_features, balanced_labels = sm.fit_resample(features_array, labels_array)
     return balanced_features, balanced_labels
